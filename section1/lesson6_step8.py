@@ -16,6 +16,7 @@ try:
     input3.send_keys('Smolensk')
     input4 = browser.find_element(By.ID, 'country')
     input4.send_keys('Russia')
+
     button = browser.find_element(By.XPATH, '//button[text()="Submit"]')
     button.click()
 

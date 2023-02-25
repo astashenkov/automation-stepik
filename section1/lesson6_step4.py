@@ -9,13 +9,13 @@ try:
     browser.get(link)
 
     input1 = browser.find_element(By.TAG_NAME, 'input')
-    input1.send_keys('Ivan')
+    input1.send_keys('John')
     input2 = browser.find_element(By.NAME, 'last_name')
-    input2.send_keys('Petrov')
+    input2.send_keys('Shetty')
     input3 = browser.find_element(By.CLASS_NAME, 'city')
-    input3.send_keys('Smolensk')
+    input3.send_keys('New York City')
     input4 = browser.find_element(By.ID, 'country')
-    input4.send_keys('Russia')
+    input4.send_keys('USA')
     button = browser.find_element(By.CSS_SELECTOR, 'button.btn')
     button.click()
 
