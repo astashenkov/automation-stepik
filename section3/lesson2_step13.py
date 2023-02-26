@@ -1,10 +1,11 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+"""Refactoring test from section 1 lesson 6 step 11 with using unittest framework."""
 
 
-class TestRegistered(unittest.TestCase):
-    """Refactoring test from section 1 lesson 6 step 11 with using unittest framework."""
+class TestRegistration(unittest.TestCase):
+    """Class for unittest tests."""
 
     def test_registration1(self):
         """Test registration on the first page."""
