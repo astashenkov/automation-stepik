@@ -6,9 +6,9 @@ class ProductPage(BasePage):
 
     def add_to_basket(self):
         assert self.is_element_present(
-            *ProductPageLocators.ADD_TO_BASKET
+            *ProductPageLocators.ADD_TO_BASKET_BUTTON
         ), "Add to basket button don't present on the page."
-        self.press_button(*ProductPageLocators.ADD_TO_BASKET)
+        self.press_button(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
 
     def get_current_product_price(self):
         return self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
