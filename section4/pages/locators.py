@@ -19,3 +19,4 @@ class ProductPageLocators:
     PRODUCT_TITLE = (By.CSS_SELECTOR, '.product_main h1')
     ADDED_TO_BASKET_PRODUCT_TITLE = (By.CSS_SELECTOR, '.alert-noicon.alert-success div strong')
     ADDED_TO_BASKET_PRODUCT_PRICE = (By.CSS_SELECTOR, '.alertinner p strong')
+    SUCCESS_ADDED_MESSAGE = (By.CSS_SELECTOR, '.alert-success')
