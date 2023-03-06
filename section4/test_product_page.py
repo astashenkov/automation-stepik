@@ -1,14 +1,26 @@
 import pytest
+import time
 
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
 from .pages.locators import ProductPageLocators
 
 
 class TestUserAddToBasketFromProductPage:
 
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        link = 'http://selenium1py.pythonanywhere.com/accounts/login/'
+        page = LoginPage(browser, link)
+        page.open()
+        new_user = str(time.time())
+        page.register_new_user(new_user + '@fakemail.org', new_user)
+        page.should_be_authorized_user()
+        time.sleep(20)
+
     @pytest.mark.need_review
-    def test_user_can_add_product_to_basket(browser):
+    def test_user_can_add_product_to_basket(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
         product_page = ProductPage(browser, link)
         product_page.open()
@@ -23,7 +35,7 @@ class TestUserAddToBasketFromProductPage:
         assert product_title == product_page.get_added_to_basket_product_title(), f'Different product title! {link}'
 
     @pytest.mark.xfail
-    def test_user_cant_see_success_message_after_adding_product_to_basket(browser):
+    def test_user_cant_see_success_message_after_adding_product_to_basket(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
         product_page = ProductPage(browser, link)
         product_page.open()
@@ -102,7 +114,9 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
-    page.go_to_basket()
     basket_page = BasketPage(browser, browser.current_url)
-    basket_page.is_empty_basket()
-    basket_page.is_empty_basket_message_present()
+    basket_page.open()
+    import time
+    time.sleep(10)
+    basket_page.check_is_empty_basket()
+    basket_page.check_empty_basket_message()
