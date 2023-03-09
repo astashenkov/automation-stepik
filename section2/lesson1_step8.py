@@ -5,7 +5,7 @@ import time
 
 
 def calc(x: int) -> str:
-    return str(math.log(abs(12*math.sin(int(x)))))
+    return str(math.log(abs(12 * math.sin(int(x)))))
 
 
 link = 'http://suninjuly.github.io/get_attribute.html'

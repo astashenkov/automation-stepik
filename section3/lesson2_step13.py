@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
 """Refactoring test from section 1 lesson 6 step 11 with using unittest framework."""
 
 

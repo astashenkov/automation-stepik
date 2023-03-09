@@ -3,8 +3,10 @@ from selenium.webdriver.common.by import By
 import math
 import time
 
+
 def calc(x: int) -> str:
-    return str(math.log(abs(12*math.sin(int(x)))))
+    return str(math.log(abs(12 * math.sin(int(x)))))
+
 
 link = 'https://suninjuly.github.io/math.html'
 

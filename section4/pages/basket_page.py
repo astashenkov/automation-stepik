@@ -29,7 +29,7 @@ class BasketPage(BasePage):
 
     def check_empty_basket_message_text(self):
         if self.is_empty_basket_message_exist():
-            assert self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_MESSAGE).text,\
+            assert self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_MESSAGE).text, \
                 'The basket message is empty, but not should be.'
         else:
             assert False, 'The message is not exist, but should be.'

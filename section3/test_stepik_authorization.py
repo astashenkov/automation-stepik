@@ -18,7 +18,6 @@ from selenium.webdriver.support.ui import WebDriverWait
     'https://stepik.org/lesson/236905/step/1'
 ])
 def test_authorization(browser, link):
-
     browser.get(link)
     login_button = WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, 'ember33')))
     login_button.click()
