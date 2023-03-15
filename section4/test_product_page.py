@@ -114,9 +114,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
+    page.go_to_basket()
     basket_page = BasketPage(browser, browser.current_url)
-    basket_page.open()
-    import time
-    time.sleep(10)
     basket_page.check_is_empty_basket()
-    basket_page.check_empty_basket_message()
+    basket_page.check_empty_basket_message_text()

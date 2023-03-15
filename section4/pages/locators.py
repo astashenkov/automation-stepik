@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class BasketPageLocators:
     NOT_EMPTY_CONTAINER = (By.CSS_SELECTOR, '.basket-title.hidden-xs')
-    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, '.content_inner p')
+    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, '#content_inner p')
 
 
 class BasePageLocators:
