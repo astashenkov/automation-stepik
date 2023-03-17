@@ -24,9 +24,7 @@ class TestUserAddToBasketFromProductPage:
         link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
         product_page = ProductPage(browser, link)
         product_page.open()
-
         product_page.add_to_basket()
-        product_page.solve_quiz_and_get_code()
 
         product_price = product_page.get_current_product_price()
         product_title = product_page.get_current_product_title()
