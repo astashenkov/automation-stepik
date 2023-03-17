@@ -26,11 +26,8 @@ class TestUserAddToBasketFromProductPage:
         product_page.open()
         product_page.add_to_basket()
 
-        product_price = product_page.get_current_product_price()
-        product_title = product_page.get_current_product_title()
-
-        assert product_price == product_page.get_added_to_basket_product_price(), f'Different product price! {link}'
-        assert product_title == product_page.get_added_to_basket_product_title(), f'Different product title! {link}'
+        product_page.check_is_prise_correct()
+        product_page.check_is_title_correct()
 
     @pytest.mark.xfail
     def test_user_cant_see_success_message_after_adding_product_to_basket(self, browser):
@@ -38,9 +35,7 @@ class TestUserAddToBasketFromProductPage:
         product_page = ProductPage(browser, link)
         product_page.open()
         product_page.add_to_basket()
-        assert product_page.is_not_element_present(
-            *ProductPageLocators.SUCCESS_ADDED_MESSAGE
-        ), 'Success message is presents on the page but should not be.'
+        product_page.check_is_presented_success_message()
 
 
 @pytest.mark.need_review
@@ -63,11 +58,8 @@ def test_guest_can_add_product_to_basket(browser, promo):
     product_page.add_to_basket()
     product_page.solve_quiz_and_get_code()
 
-    product_price = product_page.get_current_product_price()
-    product_title = product_page.get_current_product_title()
-
-    assert product_price == product_page.get_added_to_basket_product_price(), f'Different product price! {link}'
-    assert product_title == product_page.get_added_to_basket_product_title(), f'Different product title! {link}'
+    product_page.check_is_prise_correct()
+    product_page.check_is_title_correct()
 
 
 @pytest.mark.xfail
@@ -76,9 +68,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.add_to_basket()
-    assert product_page.is_not_element_present(
-        *ProductPageLocators.SUCCESS_ADDED_MESSAGE
-    ), 'Success message is presents on the page but should not be.'
+    product_page.check_is_presented_success_message()
 
 
 @pytest.mark.xfail
@@ -87,9 +77,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.add_to_basket()
-    assert product_page.is_disappeared(
-        *ProductPageLocators.SUCCESS_ADDED_MESSAGE
-    ), 'Success message is presents on the page but should not be.'
+    product_page.check_is_presented_success_message()
 
 
 @pytest.mark.need_review
